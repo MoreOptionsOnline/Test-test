@@ -1,0 +1,54 @@
+<div id="checkout_button">Check Out</div>
+<script
+src="https://alignecommerce.transactiongateway.com/token/CollectCheckout.js"
+data-checkout-key="checkout_public_442W836BrUEcPeK57HuukR9Ay2nG44f4"
+></script>
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+document.getElementById('checkout_button').addEventListener('click', function(e) {
+CollectCheckout.redirectToCheckout({
+type: "customerVaultOnly",
+lineItems: [
+],
+successUrl: null,
+cancelUrl: null,
+customerVault: {
+addCustomer: true
+},
+receipt: {
+showReceipt: true,
+},
+collectShippingInfo: true,
+useKount: false,
+paymentMethods: [
+{
+type: "creditCard",
+use3DSecure: false,
+},
+{
+type: "googlePay",
+use3DSecure: false,
+},
+],
+fields: [
+],
+}).then((error) => {
+console.log(error);
+});
+});
+});
+</script>
+<style>
+#checkout_button {
+display: inline-block;
+font-family: sans-serif;
+font-size: 20px;
+background-color: #0BD992;
+color: white;
+border-radius: 4px;
+padding: 14px 28px;
+}
+#checkout_button:hover {
+cursor: pointer;
+}
+</style>
